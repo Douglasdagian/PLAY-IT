@@ -48,6 +48,32 @@
     <p id="theScore"><span id="score"></span><span>/10</span></p>
   <script src="js/script.js"></script>
 
+<body>
+
+
+  <h1>PLayIt</h1>
+
+  <main>
+
+    <form class="form">
+
+      <input class="jCaptcha error" id="pswd" type=" text" placeholder="Enter password!">
+      <button class="button" type="button" value="Submit" onclick="checkPswd();">Login</button>
+
+    </form>
+
+  </main>
+  <script type="text/javascript">
+    function checkPswd() {
+      var confirmPassword = "Moringa";
+      var password = document.getElementById("pswd").value;
+      if (password == confirmPassword) {
+        window.location = "login.html";
+      } else {
+        alert("Passwords do not match.");
+      }
+    }
+  </script>
 </body>
 
 </html>

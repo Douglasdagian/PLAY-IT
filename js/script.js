@@ -1,4 +1,4 @@
-var trivia = [
+var quiz = [
   {
     question:
       "What does HTML stand for??",
@@ -117,7 +117,7 @@ function initialCountdown() {
   startTime--;
   if (startTime === 0) {
     clearInterval(initCounter);
-    initGame();
+    startQuiz();
     return;
   }
   $(".first-timer").text(startTime);
@@ -130,7 +130,7 @@ $(".answer").removeClass("selected");
 });
 
 
-function initGame() {
+function startQuiz() {
   $("#welcome").hide();
   $("#replaceStr").removeClass("hidden");
   $("#removeStr").hide();
@@ -146,14 +146,14 @@ function initGame() {
   });
 
   function runTrivia() {
-    var triviaStr = trivia[currentQuestion];
+    var triviaStr = quiz[currentQuestion];
     var answers = triviaStr.answerSet;
     var correctAnswer = triviaStr.correctAnswer;
     var questionArea = $("#question");
     var answerChoices = $("#choices");
     gameTime--;
 
-    
+
     $(".game-timer").text(parseInt(gameTime));
     $("#question-num").html(
       "<h3 class='date'> Question #" + (currentQuestion + 1) + "</h3>"
@@ -189,7 +189,7 @@ function initGame() {
       showResults();
       clearInterval(gameTimer);
     } else if (gameTime === 0 && currentQuestion !== 9) {
-      gameTime += 10; 
+      gameTime += 10;
       $("#game").hide("slow");
       $(".answer").removeClass("selected");
       if (selected.hasClass("correct")) {
