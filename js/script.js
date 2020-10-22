@@ -153,7 +153,7 @@ function initGame() {
     var answerChoices = $("#choices");
     gameTime--;
 
-    // Updates the DOM for each question
+    
     $(".game-timer").text(parseInt(gameTime));
     $("#question-num").html(
       "<h3 class='date'> Question #" + (currentQuestion + 1) + "</h3>"
@@ -189,7 +189,7 @@ function initGame() {
       showResults();
       clearInterval(gameTimer);
     } else if (gameTime === 0 && currentQuestion !== 9) {
-      gameTime += 15; //21 for finished
+      gameTime += 10; 
       $("#game").hide("slow");
       $(".answer").removeClass("selected");
       if (selected.hasClass("correct")) {
