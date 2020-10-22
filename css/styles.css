@@ -1,12 +1,24 @@
-.logo{
-    color: whitesmoke;
-    font-size: 35px;
-    line-height: 80px;
-    padding: 0 100px;
-	font-weight: bold;
-	font-family: 'Times New Roman', Times, serif;
-	text-align: left;
+*, *::before, *::after {
+  box-sizing: border-box;
 }
+
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, .1);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 9em;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
 body {
     margin: 20px;
     padding: 20px;
@@ -211,4 +223,341 @@ p {
       width: 250px;
 	  height: 250px;
 	  align-self: left;
-	}
+	  font-size: 62.5%;
+
+}
+
+body {
+
+  margin: 0;
+  padding: 0;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  color: #ddd;
+  background-color: #292b2b;
+  text-align: center;
+}
+
+
+
+h1 {
+
+  font-size: 100px;
+  line-height: 1;
+  margin: 0 auto;
+  font-family: 'Yesteryear', cursive, serif;
+  color: #e8d639;
+  text-shadow: 3px 5px 2px #1f1f1f;
+  margin-top: 150px;
+  text-align: center;
+
+}
+
+header p {
+
+  font-size: 14px;
+  margin: 18px 20px 0 20px;
+  line-height: 1.5;
+  color: #848484;
+  border-bottom: 1px solid #464646;
+  display: inline-block;
+
+}
+
+main {
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 470px;
+  height: 60px;
+  margin: -30px 0 0 -235px;
+  border-radius: 4px;
+
+}
+
+.form {
+
+  box-shadow: 2px 4px 2px #1f1f1f;
+  position: relative;
+  border-radius: 4px;
+
+}
+
+
+.jCaptcha {
+
+  padding: 20px 25px 20px 20px;
+  font-size: 15px;
+  width: 320px;
+  height: 60px;
+  box-sizing: border-box;
+  outline: none;
+  border-radius: 4px 0 0 4px;
+  border: none;
+  vertical-align: middle;
+  transition: all 150ms linear;
+  box-shadow: 0 0 8px #4e4706;
+
+}
+
+
+.button {
+
+  padding: 21px 0;
+  width: 150px;
+  height: 60px;
+  vertical-align: middle;
+  box-sizing: border-box;
+  font-size: 12px;
+  font-weight: bold;
+  background: #e8d639;
+  cursor: pointer;
+  border: none;
+  color: #292b2b;
+  line-height: 1;
+  text-transform: uppercase;
+  border-radius: 0 4px 4px 0;
+  margin-left: -4px;
+  letter-spacing: 0.5px;
+  transition: all 150ms linear;
+  box-shadow: 0 0 8px #4e4706;
+  outline: none;
+
+}
+
+.button:hover,
+.button:focus {
+
+  background: #e8d20b;
+
+}
+
+.codeBtn {
+
+  display: inline-block;
+  margin: 15px auto 0 auto;
+  color: #ddd;
+  font-size: 14px;
+  padding: 5px;
+  cursor: pointer;
+
+}
+
+.btnWrap {
+
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  position: absolute;
+
+}
+
+
+
+@media screen and (max-width: 540px) {
+
+  h1 {
+
+	font-size: 60px;
+
+  }
+
+  header p {
+
+	padding-bottom: 7px;
+
+  }
+
+  main {
+
+	position: static;
+	left: auto;
+	top: auto;
+	width: 280px;
+	margin: 100px auto 100px auto;
+	height: auto;
+
+  }
+
+  .jCaptcha {
+
+	width: 180px;
+	height: 50px;
+	padding: 15px 20px 15px 15px;
+
+  }
+
+  .btnWrap {
+
+	position: static;
+	left: auto;
+	right: auto;
+	bottom: auto;
+	padding-bottom: 50px;
+
+  }
+
+  .button {
+
+	width: 100px;
+	height: 50px;
+	padding: 16px 0;
+
+  }
+
+}
+
+#next-btn {
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  line-height: 32px;
+  border-radius: 2px;
+  font-size: 20px;
+  width: 100%;
+  outline: none;
+  border: none;
+  background-color: #B13D24;
+  display: block;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  padding: 12px;
+  font-family: "Roboto Mono", Roboto, sans-serif;
+  font-weight: 200;
+}
+
+.date {
+  text-align: center;
+  text-decoration: underline;
+  color: red;
+  font-size: 20px;
+  z-index: 4;
+}
+
+.inline {
+  display: inline;
+}
+
+.hidden {
+  display: none;
+}
+
+.progress-circle.p100 .value-bar {
+  transform: rotate(360deg);
+}
+
+.progress-circle {
+  font-size: 20px;
+  margin: 20px;
+  position: relative;
+  /* so that children can be absolutely positioned */
+  padding: 0;
+  width: 5em;
+  height: 5em;
+  background-color: #F2E9E1;
+  border-radius: 50%;
+  line-height: 5em;
+  margin-left: 150px;
+  ;
+}
+
+.time {
+  margin-left: 37px;
+}
+
+#start-btn {
+  background-color: green;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  line-height: 32px;
+  border-radius: 2px;
+  border: none;
+  outline: none;
+  width: 100%;
+  color: #fff;
+  font-size: 40px;
+  padding: 30px 0;
+  cursor: pointer;
+  font-family: cursive;
+  font-weight: 400;
+}
+
+#start-btn:hover {
+  background-color: green;
+}
+
+/* Modal Window Styles */
+#modal_window {
+  border: 1px solid #333;
+  background-color: #000;
+  width: 100%;
+  opacity: 0.6;
+  z-index: 2000;
+  height: auto;
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.26);
+}
+
+.modal_message {
+  padding: 10px 20px;
+}
+
+.modal_message p {
+  color: #fff;
+}
+
+.modal_message h2 {
+  color: #fff;
+}
+
+.modal_message span {
+  float: right;
+}
+
+.modal_message div button {
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+  line-height: 16px;
+  border-radius: 2px;
+  font-size: 18px;
+  width: 130px;
+  outline: none;
+  border: none;
+  background-color: #ff5722;
+  display: block;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  min-height: 44px;
+  padding: 6px;
+  font-family: "Roboto Mono", Roboto, sans-serif;
+  font-weight: 400;
+}
+
+.modal_message div button:hover {
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.26), 0 4px 15px 0 rgba(0, 0, 0, 0.26);
+  background-color: #ff6a3c;
+}
+
+.modal_message div button.twitter {
+  background-color: #55acee;
+  margin-right: 38px;
+}
+
+.modal_message div button.twitter:hover {
+  box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.26), 0 4px 15px 0 rgba(0, 0, 0, 0.26);
+  background-color: #83c3f3
+}
+
+.first-timer {
+  font-size: 67px;
+  color: red;
+  text-align: center;
+  margin: 50px;
+  margin-top: 50px;
+}
+
+.time {
+  font-size: 37px;
+  color: red;
+  text-align: center;
+  margin-top: 50px;
+  font-family: cursive;
+}

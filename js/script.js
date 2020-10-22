@@ -1,59 +1,245 @@
-var answers = [["Sprite", "Minute Maid", "Dr. Pepper", "Fanta"], ["Scoville Scale", "Pepper Scale", "Spiciness Scale", "Zesty Scale"], ["Thailand", "Vietnam", "Mongolia", "Malaysia"], ["Red Licorice", "Sour Candy", "Candy Canes", "Red Chocolate Sticks"], ["Salt", "Whiffler", "Umami", "Alginate"], ["Taiwan", "China", "Britain", "United States"], ["Cheese", "Jam", "Butter", "Marmalade"], ["Korea", "Japan", "Argentina", "Kazakhstan"], ["Samgyeopsal", "Bingsu", "Bulgogi", "Kimchi"], ["Alcohol", "Milk", "Smoothies", "Soft Drinks"]];
-var listOfCorrectAnswers = ["Dr. Pepper", "Scoville Scale", "Vietnam", "Red Licorice", "Umami", "United States", "Butter", "Argentina", "Kimchi", "Alcohol"];
-var listOfQuestions = ["1. Mr Pibb was a soft drink made by the Coca-Cola company to rival what drink?", "2. What is the name of the scale used to measure the spiciness of peppers?", "3. Pho is a popular noodle soup from what country?", "4. Red Vines is a popular brand of what kind of candy?", "5. The taste that allows us to taste savoury food is called…", "6. The paperboard “Chinese Takeout” was invented in what country?", "7. Margarine is sold as a replacement of what?", "8. Chimichurri is a green sauce originated in what country?", "9. What is a traditional fermented Korean side dish made of seasoned vegetables and salt?", "10. A teetotaler is a person that never drinks what?"];
+var quiz = [
+  {
+    question:
+      "What does HTML stand for??",
+    answerSet: {
+      A: "Hypertext Markup Lang..",
+      B: "Hyperlinks and Text Markup",
+      C: "Text Markup",
+      D: "Don't know"
+    },
+    correctAnswer: "A"
+  },
+  {
+    question:
+      "What do you call the small image icons used to express emotions or ideas in digital communication?",
+    answerSet: {
+      A: "Emojis",
+      B: "GIF's",
+      C: "JPEG's",
+      D: "Pixels"
+    },
+    correctAnswer: "A"
+  },
+  {
+    question:
+      "When referring to a computer monitor, what does the acronym LCD stand for?",
+    answerSet: {
+      A: "Limited Cypher Ducks",
+      B: "Light Collision Detector",
+      C: "Laser Color Display",
+      D: "Liquid Crystal Display"
+    },
+    correctAnswer: "D"
+  },
+  {
+    question: "Which of these is NOT a operating system?",
+    answerSet: {
+      A: "Windows",
+      B: "Android",
+      C: "Linux",
+      D: "Ledges"
+    },
+    correctAnswer: "D"
+  },
+  {
+    question:
+      "When referring to computer memory, what does that acronym RAM stand for?",
+    answerSet: {
+      A: "Real Awesome Mem.",
+      B: "Random Access Memory",
+      C: "Razor Alignment Memory",
+      D: "None"
+    },
+    correctAnswer: "B"
+  },
+  {
+    question: 'In computer science, what does "GUI" stand for?',
+    answerSet: {
+      A: "Graphical User Interface",
+      B: "Gooey Ugly Invention",
+      C: "GUI Ducks",
+      D: "Green Umpire Instincts"
+    },
+    correctAnswer: "A"
+  },
+  {
+    question:
+      "Steve Jobs, Steve Wozniak, and Ronald Wayne founded what company in 1976?",
+    answerSet: {
+      A: "BMW",
+      B: "Apple",
+      C: "The Linux Foundation",
+      D: "Microsoft"
+    },
+    correctAnswer: "B"
+  },
+  {
+    question: 'In a website browser address bar what does "www" stand for?',
+    answerSet: {
+      A: "We Will Win",
+      B: "Wompa Wompa Wompa",
+      C: "World Wide Web",
+      D: "Walter Went Wild"
+    },
+    correctAnswer: "C"
+  },
+  {
+    question: "HTML and CSS are computer languages used to create what?",
+    answerSet: {
+    A: "Operating Systems",
+    B: "Machine Learning Algorithims",
+    C: "Web Pages",
+    D: "Keyboards"
 
+    },
+    correctAnswer: "C"
+  },
+  {
+    question: "In a photo editing program, what do the letters RGB stand for?",
+    answerSet: {
+      A: "Red, Green, Blue",
+      B: "Remove Giant Background",
+      C: "Ready, Go, Begin",
+      D: "Rare Gem Broker"
+    },
+    correctAnswer: "A"
+  }
+];
 
-var numQuestions = document.getElementsByClassName("Questions");
-var numAnswers = document.getElementsByClassName("Answers");
-var submitButton = document.getElementById("submitanswers");
-var questionElement = document.getElementById("Question");
-var questionCount = 0;
-var score = 0;
-
-function startButton() {
-	//show the score
-	document.getElementById("score").innerHTML = score;
-	var startClass = document.getElementById("startbutton").className;
-	if (startClass == "start") {
-		//hide other things
-		document.getElementById("thinker").style.width = "0px";
-      document.getElementById("thinker").style.height = "0px";
-	   document.getElementById("startbutton").style.visibility = "hidden";
-		//show scores
-	   document.getElementById("preScore").style.visibility = "visible";
-	   document.getElementById("theScore").style.visibility = "visible";
-		// show questions and answers
-		showQuestionsAndAnswers();
-	}
+var startTime = 5;
+function initCounter() {
+  $("#intro").hide();
+  $(".timer").removeClass("hidden");
+  setInterval(initialCountdown, 1000);
 }
-function showQuestionsAndAnswers() {
-	questionElement.innerHTML = listOfQuestions[questionCount];
-	document.getElementById("Question").style.visibility = "visible";
-	document.getElementById("1").innerHTML = answers[questionCount][0];
-	document.getElementById("2").innerHTML = answers[questionCount][1];
-	document.getElementById("3").innerHTML = answers[questionCount][2];
-	document.getElementById("4").innerHTML = answers[questionCount][3];
-	for(var i =0; i<numAnswers.length; i++) {
-		numAnswers[i].style.visibility = "visible";
-	}
+function initialCountdown() {
+  startTime--;
+  if (startTime === 0) {
+    clearInterval(initCounter);
+    startQuiz();
+    return;
+  }
+  $(".first-timer").text(startTime);
 }
 
-function checkAnswer(number) {
-	questionCount++;
-		for(var i =0; i<numAnswers.length; i++) {
-				numAnswers[i].style.visibility = "false";
-			}
-		var answer = document.getElementById(number).innerHTML;
-		if (listOfCorrectAnswers.indexOf(answer) != -1) {
-			score ++;
-		}
-		document.getElementById("score").innerHTML = score;
-	if (questionCount<10) {
-		showQuestionsAndAnswers();
-		document.getElementById(number).blur();
-	} else {
-		setTimeout(function() {
-			alert("You have reached the end of the quiz. You scored " + score + " out of 10.");
-		}, 10);
-	}
+
+$(".answer").click(function() {
+$(".answer").removeClass("selected");
+  $(this).addClass("selected");
+});
+
+
+function startQuiz() {
+  $("#welcome").hide();
+  $("#replaceStr").removeClass("hidden");
+  $("#removeStr").hide();
+  var gameTime = 10;
+  var currentQuestion = 0;
+  var numIncorrect = 0;
+  var numCorrect = 0;
+  var gameTimer = setInterval(runTrivia, 1000);
+  var restarted = false;
+  $("#next-btn").click(function() {
+    gameTime = 1;
+    return gameTime;
+  });
+
+  function runTrivia() {
+    var triviaStr = quiz[currentQuestion];
+    var answers = triviaStr.answerSet;
+    var correctAnswer = triviaStr.correctAnswer;
+    var questionArea = $("#question");
+    var answerChoices = $("#choices");
+    gameTime--;
+
+
+    $(".game-timer").text(parseInt(gameTime));
+    $("#question-num").html(
+      "<h3 class='date'> Question #" + (currentQuestion + 1) + "</h3>"
+    );
+    questionArea.text(triviaStr.question);
+    $.each(answers, function(i, val) {
+      $("#" + i).text(i + " : " + val);
+    });
+    $("#" + correctAnswer).addClass("correct");
+    $("#game").show("slow");
+
+    function showResults() {
+      var score = numCorrect * 10;
+      $("#number-correct").html(
+        "<h3>You got " + numCorrect + " correct.</h3>"
+      );
+      $("#number-wrong").html(
+        "<h3>You got " + numIncorrect + " wrong.</h3>"
+      );
+      $("#score").text(score + "%");
+      $("#result-section").show("slow");
+    }
+
+
+    var selected = $(".selected");
+    if (gameTime === 0 && currentQuestion === 9) {
+      $("#game").hide();
+      if (selected.hasClass("correct")) {
+        numCorrect++;
+      } else {
+        numIncorrect++;
+      }
+      showResults();
+      clearInterval(gameTimer);
+    } else if (gameTime === 0 && currentQuestion !== 9) {
+      gameTime += 10;
+      $("#game").hide("slow");
+      $(".answer").removeClass("selected");
+      if (selected.hasClass("correct")) {
+        numCorrect++;
+        currentQuestion++;
+      } else {
+        numIncorrect++;
+        currentQuestion++;
+      }
+      $("#" + correctAnswer).removeClass("correct");
+    }
+  }
 }
+function restartGame() {
+      $("#game").hide();
+      clearInterval();
+      $("#welcome").show("slow");
+     return (startTime = 5);
+    }
+function nextQuestion() {
+  return (gameTime = 0);
+}
+
+
+  function showDate() {
+    var now = new Date();
+    var days = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+    var months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+    var date = ((now.getDate() < 10) ? "0" : "") + now.getDate();
+
+    function fourdigits(number) {
+      return (number < 1000) ? number + 1900 : number;
+    }
+
+    tnow = new Date();
+    thour = now.getHours();
+    tmin = now.getMinutes();
+    tsec = now.getSeconds();
+
+    if (tmin <= 9) {
+      tmin = "0" + tmin;
+    }
+    if (tsec <= 9) {
+      tsec = "0" + tsec;
+    }
+    if (thour < 10) {
+      thour = "0" + thour;
+    }
+
+    today = days[now.getDay()] + ", " + date + " " + months[now.getMonth()] + ", " + (fourdigits(now.getYear())) + " - " + thour + ":" + tmin + ":" + tsec;
+    document.getElementById("dateDiv").innerHTML = today;
+  }
+  setInterval("showDate()", 1000);
