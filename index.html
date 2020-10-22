@@ -193,47 +193,33 @@
     }
   </style>
 </head>
-<body class="container">
-    <lable class="logo">PLAYIT</lable><br>
-    <img src="./images/image-40.gif">
-    <h1>HOME</h1>
-    <h1>WELCOME&nbsp;TO PLAYIT TRIVIA&nbsp;QUIZ!</h1>
-    <p>Just click the option that you think is the correct answer to the question.</p>
-    <hr />
-    <!--Hamburger Menu-->
-    <span class="container">
-      <span class="checkbox-container">
-        <input class="checkbox-trigger" type="checkbox" />
-        <span class="menu-content">
-          <ul>
-            <nav>
-              <li><a href="index.html">HOME</a></li>
-              <li><a href="login.html">LOGIN</a></li>
-              <li><a href="contacus">CONTACT-US</a></li>
-              <li><a href="aboutus">ABOUT-US</a></li>
-            </ul>
-          </nav>
-          <span class="hamburger-menu"></span>
-        </span>
-      </span>
-    </span>
-    <!--End of hamburger menu-->
-    <button class="start" id="startbutton" onclick="startButton()">Start</button>
-    <center><img id="thinker"
-        src="https://cdn.shopify.com/s/files/1/1061/1924/products/Thinking_Face_Emoji_grande.png?v=1469791175"/>
-    </center>
-    <!-- Questions and Answers -->
-    <div class="Questions" id="Question"></div>
-    <button class="Answers" id="1" onclick="checkAnswer(1)"></button>
-    <button class="Answers" id="2" onclick="checkAnswer(2)"></button>
-    <button class="Answers" id="3" onclick="checkAnswer(3)"></button>
-    <button class="Answers" id="4" onclick="checkAnswer(4)"></button>
-    <br>
-    <br>
-    <p id="preScore">Score:</p>
-    <p id="theScore"><span id="score"></span><span>/10</span></p>
-  <script src="js/script.js"></script>
 
+<body>
+
+
+  <h1>PLayIt</h1>
+
+  <main>
+
+    <form class="form">
+
+      <input class="jCaptcha error" id="pswd" type=" text" placeholder="Enter password!">
+      <button class="button" type="button" value="Submit" onclick="checkPswd();">Login</button>
+
+    </form>
+
+  </main>
+  <script type="text/javascript">
+    function checkPswd() {
+      var confirmPassword = "Moringa";
+      var password = document.getElementById("pswd").value;
+      if (password == confirmPassword) {
+        window.location = "login.html";
+      } else {
+        alert("Passwords do not match.");
+      }
+    }
+  </script>
 </body>
 
 </html>
