@@ -306,3 +306,11 @@ section {
   margin: 50px;
   margin-top: 50px;
 }
+
+.time {
+  font-size: 37px;
+  color: red;
+  text-align: center;
+  margin-top: 50px;
+  font-family: cursive;
+}
